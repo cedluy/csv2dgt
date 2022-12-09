@@ -1,9 +1,12 @@
+#!/usr/bin/env python
+"""Conversion of subtitles (.csv) to excel format (DG T)
+
+Converts a .csv subtitle file exported by Adobe Premiere Pro into 24 Excel files formatted for DG T (translation)
+ineach of the official languages of the European Union.
+"""
+
 from pathlib import Path
 import pandas as pd
-
-'''
-authorship information
-'''
 
 __author__ = "Cédric Luypaerts"
 __copyright__ = "Copyright 2022, DIGIT-VISUAL-PRODUCTION Team"
@@ -12,10 +15,9 @@ __license__ = "GPL-3.0-or-later"
 __version__ = "0.1.0"
 __maintainer__ = "Cédric Luypaerts"
 __email__ = "luypaertscedric -at- gmail.com"
-__status__ = "Under development"
+__status__ = "Prototype"
 
-
-class CSV2DGT:
+class CsvToDgt:
     def __init__(self, filename: str) -> None:
         self.df_refact = None
         self.filename = filename
@@ -60,6 +62,6 @@ class CSV2DGT:
 
 
 filename_csv = input("Please insert the name of the .csv file (without the extension): ")
-sub = CSV2DGT(filename_csv)
+sub = CsvToDgt(filename_csv)
 sub.process_data()
 sub.export_data()
